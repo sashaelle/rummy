@@ -54,7 +54,7 @@ public class play {
             u1.add(dis.remove(0));
             discard(u1.get(u1.size() - 1));
         } else if (choice.equalsIgnoreCase("n")) {
-            menu();
+            System.out.println("Alr fair.");
         } else {
             System.out.println("Tf did you input? Put in y or n. It's not that hard");
             discardTop();
@@ -87,5 +87,10 @@ public class play {
         }
         System.out.println();
 
+    }
+
+    static boolean checkWin(ArrayList<card> hand){
+        // code
+        return true;
     }
 }
