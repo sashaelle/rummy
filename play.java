@@ -1,9 +1,9 @@
 import java.util.*;
 
 public class play {
-    private static ArrayList<card> u1;
-    private static final cards cards = new cards();
-    public static ArrayList<card> dis = new ArrayList<>();
+    private static ArrayList<card> u1; //user hand
+    private static final cards cards = new cards(); // deck of cards
+    public static ArrayList<card> dis = new ArrayList<>(); // discard pile
 
     private static final Scanner input = new Scanner(System.in);
 
@@ -55,6 +55,17 @@ public class play {
             discard(u1.get(u1.size() - 1));
         } else if (choice.equalsIgnoreCase("n")) {
             System.out.println("Alr fair.");
+            System.out.println("You sure? If you don't pick this up you draw.");
+            input.nextLine();
+            choice = input.nextLine();
+            if(choice.equalsIgnoreCase("n")) {
+                System.out.println("Gotcha. Drawing the top card.");
+                drawCard();
+            } else {
+                System.out.println("You drew: " + dis.get(0).getName());
+                u1.add(dis.remove(0));
+                discard(u1.get(u1.size() - 1));
+            }
         } else {
             System.out.println("Tf did you input? Put in y or n. It's not that hard");
             discardTop();
@@ -91,6 +102,6 @@ public class play {
 
     static boolean checkWin(ArrayList<card> hand){
         // code
-        return true;
+        return false;
     }
 }
