@@ -1,6 +1,6 @@
 /*
- * Main driver and game
- */
+* Main driver and game
+*/
 
 import java.util.*;
 
@@ -19,7 +19,7 @@ public class rummy {
     public rummy(){
         System.out.println("Welcome to Rummy\nHere are your cards");
         deal();
-        turn();
+        startGame();
     }
 
     public void deal() {
@@ -42,10 +42,21 @@ public class rummy {
         System.out.println();
     }
 
-    void turn(){
-        play.showCards();
-        play.menu();
-    }
-    //computer has to play
+    void startGame(){
+        while(true){
+            System.out.println("\nYour turn: ");
+            play.menu();
 
+            if (play.checkWin(u1)){
+                System.out.println("You win!");
+                break;
+            }
+
+            computerTurn();
+        }
+    }
+
+    void computerTurn(){
+        System.out.println("\nComputer's Turn...");
+    }
 }
